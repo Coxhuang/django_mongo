@@ -25,7 +25,7 @@ SECRET_KEY = '3ka*f42v_354k=11%_0*e$i+$w+6a0@9!b@+9$@8-kry$3y2=8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -77,10 +77,15 @@ WSGI_APPLICATION = 'django_mongo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE':None,
     }
 }
+
+from mongoengine import connect
+connect('django_mongo')
+
 
 
 # Password validation

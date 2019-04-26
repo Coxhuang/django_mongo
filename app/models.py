@@ -1,3 +1,12 @@
 from django.db import models
+import mongoengine
 
-# Create your models here.
+
+class Test(mongoengine.Document):
+
+    name = mongoengine.StringField(
+        max_length=128,
+    )
+    age = mongoengine.IntField(
+        default=10,
+    )

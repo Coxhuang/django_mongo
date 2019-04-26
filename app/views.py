@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import HttpResponse
+from app.models import Test
 
-# Create your views here.
+
+
+
+def test(request):
+
+    Test.objects.create(
+        name = "cox",
+        age = 12,
+    )
+
+    return HttpResponse("hello mongodb")
